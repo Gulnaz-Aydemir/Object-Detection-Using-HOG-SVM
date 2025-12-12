@@ -46,16 +46,16 @@ Sistem aynı zamanda yayaları tespit etmek için de test edilmiştir.
 
 Bu proje **Python** dili ile geliştirilmiştir. Kullanılan temel kütüphaneler:
 
-* 🐍 **OpenCV:** Görüntü işleme ve çizim işlemleri.
-* 🔢 **NumPy:** Matris ve vektör hesaplamaları.
-* 🧠 **Scikit-learn:** SVM modelinin eğitimi ve metrikler.
-* 👁️ **Scikit-image:** HOG algoritmasının implementasyonu.
-* 💾 **Joblib:** Eğitilen modelin kaydedilmesi.
-* 📊 **Matplotlib:** Sonuçların görselleştirilmesi.
+*  **OpenCV:** Görüntü işleme ve çizim işlemleri.
+*  **NumPy:** Matris ve vektör hesaplamaları.
+*  **Scikit-learn:** SVM modelinin eğitimi ve metrikler.
+*  **Scikit-image:** HOG algoritmasının implementasyonu.
+*  **Joblib:** Eğitilen modelin kaydedilmesi.
+*  **Matplotlib:** Sonuçların görselleştirilmesi.
 
 ---
 
-## 📂 Proje Yapısı
+##  Proje Yapısı
 
 ```text
 ├── data/
@@ -74,7 +74,8 @@ Bu proje **Python** dili ile geliştirilmiştir. Kullanılan temel kütüphanele
 │   └── figures/            # Raporda kullanılan görseller
 └── requirements.txt        # Gerekli kütüphaneler
 
-🚀 Kurulum ve Çalıştırma
+ Kurulum ve Çalıştırma
+
 Projeyi kendi bilgisayarınızda çalıştırmak için aşağıdaki adımları izleyin.
 
 1. Projeyi Klonlayın:
@@ -96,4 +97,4 @@ Gülnaz Aydemir
 
 📧 İletişim: gulnazaydemir22@gmail.com
 
-Bu proje, Bilgisayarlı Görü dersi kapsamında dönem projesi olarak hazırlanmıştır.
+Bu proje, Bilgisayarlı Görü dersi kapsamında hazırlanmıştır.
