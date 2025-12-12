@@ -73,3 +73,27 @@ Bu proje **Python** dili ile geliştirilmiştir. Kullanılan temel kütüphanele
 │   ├── report.pdf          # Detaylı proje raporu
 │   └── figures/            # Raporda kullanılan görseller
 └── requirements.txt        # Gerekli kütüphaneler
+
+🚀 Kurulum ve Çalıştırma
+Projeyi kendi bilgisayarınızda çalıştırmak için aşağıdaki adımları izleyin.
+
+1. Projeyi Klonlayın:
+git clone [https://github.com/KULLANICI_ADINIZ/PROJE_ADINIZ.git](https://github.com/KULLANICI_ADINIZ/PROJE_ADINIZ.git)
+cd PROJE_ADINIZ
+
+2. Gerekli Kütüphaneleri Yükleyin:
+pip install -r requirements.txt
+
+3. Test Kodunu Çalıştırın: data/test_images klasörüne kendi resimlerinizi koyarak tespiti başlatabilirsiniz:
+python src/object_detection.py
+
+👤 Hazırlayan
+Gülnaz Aydemir
+
+🎓 Bölüm: Yapay Zeka Mühendisliği
+
+🏛️ Üniversite: OSTİM Teknik Üniversitesi
+
+📧 İletişim: gulnazaydemir22@gmail.com
+
+Bu proje, Bilgisayarlı Görü dersi kapsamında dönem projesi olarak hazırlanmıştır.
