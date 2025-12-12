@@ -1,70 +1,75 @@
-# HOG ile Nesne Tespiti ve Sınıflandırma Projesi
+# 🚗 Histogram of Oriented Gradients (HOG) & SVM ile Nesne Tespiti
 
-Bu proje, Bilgisayarlı Görü dersinde geliştirilmiştir. Projenin amacı, Histogram of Oriented Gradients (HOG) yöntemini kullanarak görüntülerden öznitelik çıkarımı yapmak ve Destek Vektör Makineleri (SVM) algoritması ile eğitilen bir model sayesinde nesne tespiti (araç ve yaya) gerçekleştirmektir.
+![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python)
+![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-green?style=for-the-badge&logo=opencv)
+![Scikit-Learn](https://img.shields.io/badge/scikit--learn-Machine%20Learning-orange?style=for-the-badge&logo=scikit-learn)
+![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
 
-Proje; veri setinin hazırlanması, modelin eğitilmesi ve kayan pencere (sliding window) yöntemiyle test edilmesini kapsar.
+> **Bu proje, klasik bilgisayarlı görü tekniklerini (HOG + SVM) kullanarak araç ve yaya tespiti yapan uçtan uca bir sistemdir.**
 
-# Kurulum 
-Projenin sorunsuz çalışabilmesi için gerekli Python kütüphanelerinin yüklü olması gerekmektedir.
+---
 
-1. Sanal Ortam (Önerilen): Projeyi çalıştırmadan önce bir sanal ortam (venv) oluşturmanız önerilir.
+## 📖 Proje Hakkında
 
-2. Kütüphanelerin Yüklenmesi: Proje dizininde terminali açarak aşağıdaki komutu çalıştırınız. Bu komut requirements.txt dosyasındaki tüm paketleri otomatik olarak kuracaktır:
+Günümüzde otonom sürüş ve güvenlik sistemlerinin temelini oluşturan **Nesne Tespiti (Object Detection)** problemi, bu projede derin öğrenme yöntemlerine alternatif olarak, daha düşük donanım kaynağı gerektiren klasik yöntemlerle çözülmüştür.
 
+**Projenin temel amacı:**
+1.  **HOG (Histogram of Oriented Gradients)** algoritması ile görüntüden şekil/kenar özniteliklerini çıkarmak.
+2.  **SVM (Support Vector Machine)** algoritması ile bu öznitelikleri "Araç" veya "Araç Değil" olarak sınıflandırmak.
+3.  **Kayan Pencere (Sliding Window)** yöntemi ile test görüntüsü üzerinde gezerek nesneleri tespit etmek.
 
-pip install -r requirements.txt
-Kullanılan Temel Kütüphaneler:
+---
 
-opencv-python: Görüntü işleme işlemleri için.
+## 📸 Proje Sonuçları ve Görseller
 
-scikit-image: HOG algoritması için.
+Proje kapsamında elde edilen deneysel sonuçlar aşağıda sunulmuştur.
 
-scikit-learn: SVM sınıflandırma modeli için.
+### 1. HOG Öznitelik Görselleştirmesi
+HOG algoritmasının bir aracı nasıl "gördüğünü" analiz ettik. Gradyanlar, aracın tekerlek ve tavan yapısını net bir şekilde ortaya çıkarmaktadır.
 
-joblib: Eğitilen modeli kaydetmek ve yüklemek için.
+![HOG Visualization](report/figures/hog_visualization.png)
+*(Sol: Orijinal Görüntü | Sağ: HOG Gradyan Temsili)*
 
-matplotlib: Sonuçları görselleştirmek için.
+### 2. Araç Tespiti Sonucu
+Eğitilen özel SVM modeli, daha önce hiç görmediği bir test görüntüsü üzerinde aracı başarıyla tespit etmiştir.
 
-numpy: Sayısal işlemler için.
+![Car Detection](report/figures/result_test_araba.jpg)
 
-# Projenin Çalıştırılması
-Proje üç temel problem aşamasından oluşmaktadır. Aşağıdaki adımları sırasıyla uygulayarak projeyi test edebilirsiniz.
+### 3. İnsan (Yaya) Tespiti Sonucu
+Sistem aynı zamanda yayaları tespit etmek için de test edilmiştir.
 
-1. Adım: HOG Görselleştirme (Problem 1)
-HOG algoritmasının bir görüntü üzerinde gradyanları nasıl hesapladığını görmek için bu kodu çalıştırın.
+![Human Detection](report/figures/result_human_test.jpg)
 
-python src/hog_implementation.py
-İşlem: data/training_set/pos klasöründen örnek bir araç resmi alır, HOG özniteliklerini hesaplar.
+---
 
-Sonuç: data/results/hog_visualization.png dosyası oluşturulur.
+## 🛠️ Kullanılan Teknolojiler ve Kütüphaneler
 
-2. Adım: Modelin Eğitilmesi (Problem 3)
-Eğitim setindeki (Training Set) verileri kullanarak SVM modelini eğitmek için bu kodu çalıştırın.
+Bu proje **Python** dili ile geliştirilmiştir. Kullanılan temel kütüphaneler:
 
+* 🐍 **OpenCV:** Görüntü işleme ve çizim işlemleri.
+* 🔢 **NumPy:** Matris ve vektör hesaplamaları.
+* 🧠 **Scikit-learn:** SVM modelinin eğitimi ve metrikler.
+* 👁️ **Scikit-image:** HOG algoritmasının implementasyonu.
+* 💾 **Joblib:** Eğitilen modelin kaydedilmesi.
+* 📊 **Matplotlib:** Sonuçların görselleştirilmesi.
 
-python src/classification.py
-İşlem: data/training_set klasöründeki tüm resimleri (Pozitif ve Negatif) okur, HOG özelliklerini çıkarır, modeli eğitir ve başarım oranını ekrana yazar.
+---
 
-Sonuç: models/trained_classifier.pkl dosyası oluşturulur. (Hazır model zaten projede mevcuttur, bu adım modeli yeniden eğitir).
+## 📂 Proje Yapısı
 
-3. Adım: Nesne Tespiti Testi (Problem 2)
-Eğitilen modeli kullanarak, daha önce görülmemiş test resimlerinde nesne (araba/insan) tespiti yapmak için bu kodu çalıştırın.
-
-Önemli: Test etmek istediğiniz .jpg formatındaki resimleri data/test_images/ klasörüne koyduğunuzdan emin olun.
-
-
-python src/object_detection.py
-İşlem: Kayan pencere (Sliding Window) yöntemi ile resim taranır. Eğitilen model, pencerelerdeki görüntüleri sınıflandırır. Araba veya insan tespit edilen bölgeler yeşil kutu ile çizilir.
-
-Sonuç: İşlenmiş resimler data/results/ klasörüne result_ öneki ile kaydedilir.
-
-Not:
-Hazır Model: Proje klasöründe önceden eğitilmiş models/trained_classifier.pkl dosyası mevcuttur. Eğitim adımını (Adım 2) atlayıp doğrudan test adımına (Adım 3) geçebilirsiniz.
-
-Rapor: Projenin teorik detayları, kullanılan yöntemler ve sonuç yorumları report/report.pdf dosyasında sunulmuştur.
-
-Görseller: Raporda kullanılan figürlerin orijinalleri report/figures/ klasöründe yer almaktadır.
-
-Hazırlayan: Gülnaz Aydemir
-
-
+```text
+├── data/
+│   ├── training_set/       # Eğitim için kullanılan 100+ resim (Pos/Neg)
+│   ├── test_images/        # Test edilen ham görüntüler
+│   └── results/            # İşlenmiş ve kutu çizilmiş sonuçlar
+├── src/
+│   ├── hog_implementation.py  # HOG görselleştirme kodu
+│   ├── classification.py      # SVM model eğitimi kodu
+│   ├── object_detection.py    # Nesne tespiti ve test kodu
+│   └── utils.py               # Yardımcı fonksiyonlar
+├── models/
+│   └── trained_classifier.pkl # Eğitilmiş yapay zeka modeli
+├── report/
+│   ├── report.pdf          # Detaylı proje raporu
+│   └── figures/            # Raporda kullanılan görseller
+└── requirements.txt        # Gerekli kütüphaneler
