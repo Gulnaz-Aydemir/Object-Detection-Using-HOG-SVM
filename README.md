@@ -79,8 +79,8 @@ Bu proje **Python** dili ile geliştirilmiştir. Kullanılan temel kütüphanele
 Projeyi kendi bilgisayarınızda çalıştırmak için aşağıdaki adımları izleyin.
 
 1. Projeyi Klonlayın:
-git clone [https://github.com/KULLANICI_ADINIZ/PROJE_ADINIZ.git](https://github.com/KULLANICI_ADINIZ/PROJE_ADINIZ.git)
-cd PROJE_ADINIZ
+git clone [https://github.com/Gulnaz-Aydemir/Object-Detection-Using-HOG-SVM.git](https://github.com/Gulnaz-Aydemir/Object-Detection-Using-HOG-SVM.git)
+cd Object-Detection-Using-HOG-SVM
 
 2. Gerekli Kütüphaneleri Yükleyin:
 pip install -r requirements.txt
